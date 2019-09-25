@@ -92,7 +92,7 @@ $(document).ready(function () {
         }
         
         var imgDiv = $("<img>");
-        imgDiv.attr("src", currQuestion.imageUrl)
+        imgDiv.attr("src", currQuestion.imgUrl)
         $("#answerDiv").append(imgDiv);
 
         answerTimeOut = setTimeout(function () {
