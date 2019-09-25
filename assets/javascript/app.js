@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    /** variables for the questions*/
     var currQuestion;
     var currIndex = 0;
     var numCorrectAnswer = 0;
@@ -7,19 +8,19 @@ $(document).ready(function () {
     var numUnanswered = 0;
     var timeLeft = 30;
 
+    /** timeout and interval handler*/
     var questionTimeOut;
     var answerTimeOut;
     var intervalId;
 
+    /** status of displaying page and interval counting */
     var displayingQuestion = false;
     var displayingAnswer = false;
     var counting = false;
 
+    /** event handler of start button and answer option button clicking*/
     $("#startBtn").on("click", startGame);
-
     $(document).on("click", ".selection", displayAnswerPage);
-
-
 
     /** This function is to set variables while starting or restarting game */
     function startGame() {
@@ -32,6 +33,7 @@ $(document).ready(function () {
         counting = false;
         displayQuestionPage();
         $("#startBtn").css("visibility", "hidden");
+        $("#remainTimeDiv").css("visibility", "visible");
     }
 
     /** This function is to set the page to ask questions */
@@ -52,7 +54,7 @@ $(document).ready(function () {
         for (var i = 0; i < currQuestion.selection.length; i++) {
             var btnSelection = $("<button>");
             btnSelection.attr("value", currQuestion.selection[i]);
-            btnSelection.addClass("selection");
+            btnSelection.addClass("selection list-group-item list-group-item-action");
             btnSelection.text(currQuestion.selection[i]);
             $("#answerDiv").append(btnSelection);
         }
@@ -93,6 +95,7 @@ $(document).ready(function () {
         
         var imgDiv = $("<img>");
         imgDiv.attr("src", currQuestion.imgUrl)
+        imgDiv.addClass("card-img");
         $("#answerDiv").append(imgDiv);
 
         answerTimeOut = setTimeout(function () {
@@ -100,7 +103,7 @@ $(document).ready(function () {
             if (currIndex == questionset.length) {
                 displayCompletionPage();
             }
-            //complted
+            //completed
             else{
                 displayQuestionPage(currIndex);
             }
@@ -128,6 +131,7 @@ $(document).ready(function () {
     }
 
 
+    /** Set 30 seconds interval for each question */
     function startInterval() {
         if (!counting) {
             timeLeft = 30;
@@ -145,20 +149,5 @@ $(document).ready(function () {
         counting = false;
         clearInterval(intervalId);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <!-- Added a link to BootStrap-->
-    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Bungee+Inline|Crimson+Text&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Added link to the jQuery Library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,16 +19,14 @@
 </head>
 
 <body>
-
-    <div class="container">
-        <h1>Totally Trivial Trivia!</h1>
-        <div>Time Remaining: <span id="timerDiv"></span> Seconds</div>
-        <div id="questionDiv"></div>
-
-        <div id="answerDiv"></div>
-        <button id="startBtn">Start</button>
-        
-
+    <div class="card w-75 mx-auto mt-2">
+        <div class="card-body text-center flex-grow-1">
+            <h1 class="card-title">Totally Trivial Trivia!</h1>
+            <div id="remainTimeDiv" style="visibility: hidden">Time Remaining: <span id="timerDiv"></span> Seconds</div>
+            <div id="questionDiv"></div>
+            <div id="answerDiv" class="list-group"></div>
+            <button id="startBtn" class="btn btn-primary w-25">Start</button>
+        </div>
     </div>
 
 </body>
